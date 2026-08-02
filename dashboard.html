@@ -1,0 +1,48 @@
+<?php
+session_start();
+error_reporting(0);
+include('includes/dbconnection.php');
+if (strlen($_SESSION['uid']==0)) {
+  header('location:logout.php');
+  } else{
+
+
+
+  ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1.0">
+    <title>NHRMT Registration & Payment-WebPage</title>
+    <link rel="stylesheet" href="style (2).css">
+</head>
+    
+<body>
+  
+  
+
+    <div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
+        
+        <div class="wrapper wrapper--w680">
+            <div class="card card-1">
+               
+                <div class="card-body">
+                  <div class="contained">
+                    <?php
+$uid=$_SESSION['uid'];
+$ret=mysqli_query($con,"select FullName from tbluser where ID='$uid'");
+$row=mysqli_fetch_array($ret);
+$name=$row['FullName'];
+
+?>
+                      <img>
+                      <h3 style="color: black; text-align: center;">Commencement on: 03rd Aug, 2026 for registration of job placement across the Federation Agencies</h1>
+                    <h4 style="color: red; text-align: center;">Welcome !! <?php echo $name;?></h4>
+                      <p style="color: green; text-align: center;">Following a shortlist of your name at the NHRMT, you are requested to make a clearance at your fixed amount recieved on your email account/address. 
+                        The email sent to you was solely meant for you to make your clearance with National Human Resource Management for Taskforce from either of the provided bank accounts of our revenue officials, <a style="color:black" href="./Registry.htm">kindly click here to proceed</a> </p>
+                          
+                </div>
+           
